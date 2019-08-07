@@ -20,7 +20,9 @@ class _HomeStudentState extends State<HomeStudent> {
       ),
       body: ListView(
         children: <Widget>[
-          Profile();
+          Profile(),
+          Divider(),
+          StudentMenu(),
         ],
       ),
     );
@@ -54,16 +56,85 @@ class Profile extends StatelessWidget {
           children: <Widget>[
             RaisedButton.icon(
               icon: Icon(Icons.album) ,
-              label: Text(แต้มกิจกรรม),
+              label: Text('แต้มกิจกรรม'),
               onPressed: () {},
               color: Colors.grey[200],
               elevation: 0.0,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
             )
           ],
         ),
       ),
       
+    );
+  }
+}
+
+class StudentMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      crossAxisCount: 2,
+      children: studentMenuItem,    
+    );
+  }
+}
+
+List<StudentMenuItem> studentMenuItem = [
+  
+  StudentMenuItem(
+    title : 'ข้อมูลส่วนตัว',
+    icon : Icons.person,
+    colorBox : Colors.blue,
+    iconColor : Colors.white,
+  ),
+  StudentMenuItem(
+    title : 'ตารางเรียน',
+    icon : Icons.calendar_today,
+    colorBox : Colors.blue[300],
+    iconColor : Colors.white,
+  ),
+  StudentMenuItem(
+    title : 'นัดหมาย',
+    icon : Icons.calendar_today,
+    colorBox : Colors.green[300],
+    iconColor : Colors.white,
+  ),
+  StudentMenuItem(
+    title : 'กิจกรรมของฉัน',
+    icon : Icons.local_activity,
+    colorBox : Colors.orange[300],
+    iconColor : Colors.white,
+  ),
+];
+
+class StudentMenuItem extends StatelessWidget {
+
+  StudentMenuItem({this.title, this.icon, this.colorBox,this.iconColor});
+  
+  final String title;
+  final IconData icon;
+  final Color colorBox,iconColor;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          height: 70.0,
+          width: 70.0,
+          decoration: BoxDecoration(
+            color: colorBox,
+            shape: BoxShape.circle
+          ),
+          child: Icon(icon, color: iconColor),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 5.0),
+          child: Text(title,style: TextStyle(fontSize: 10.0,), textAlign: TextAlign.center,
+          ),
+        )
+      ],
     );
   }
 }
