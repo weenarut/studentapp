@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 //import 'screen/home.dart';
-import 'screen/homeStudent.dart';
+import 'screen/mainStudent.dart';
 
 void main() {
   runApp (
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'screen home',
-      home: HomeStudent(),
+      title: 'Business Computer',
+      home: MainStudent(),
     )
   );
 }
