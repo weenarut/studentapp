@@ -12,11 +12,11 @@ class _HomeTeacherState extends State<HomeTeacher> {
       appBar: AppBar(
         title: Text('Business Computer'),
         actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.more_horiz),
-          onPressed: (){},
-        )
-        ], 
+          IconButton(
+            icon: Icon(Icons.more_horiz),
+            onPressed: () {},
+          )
+        ],
       ),
       body: ListView(
         children: <Widget>[
@@ -41,20 +41,16 @@ class Profile extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(
-                "https://png.pngtree.com/png-clipart/20190603/original/pngtree-business-cartoon-character-elements-png-image_655201.jpg"
-              )
-            ),
+                fit: BoxFit.fill,
+                image: NetworkImage(
+                    "https://png.pngtree.com/png-clipart/20190603/original/pngtree-business-cartoon-character-elements-png-image_655201.jpg")),
           ),
         ),
         title: Text(
           'อาจารย์วีนารัตน์ แสวงกิจ',
-           style: TextStyle(fontWeight:FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        
       ),
-      
     );
   }
 }
@@ -64,76 +60,82 @@ class TeacherMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       shrinkWrap: true,
-      crossAxisCount: 2,  
-      children: teacherMenuItem,    
+      crossAxisCount: 2,
+      children: <Widget>[
+        MyMenu(title: 'profile',icon: Icons.person,iconColor: Colors.orange,),
+        MyMenu(title: 'ตารางสอน',icon: Icons.calendar_today,iconColor: Colors.blue,),
+        MyMenu(title: 'นัดหมาย',icon: Icons.perm_contact_calendar,iconColor: Colors.green,),
+        MyMenu(title: 'ประกาศ',icon: Icons.announcement,iconColor: Colors.red,),
+        MyMenu(title: 'กิจกรรม',icon: Icons.local_activity,iconColor: Colors.green,),
+        MyMenu(title: 'สถิติ',icon: Icons.insert_chart,iconColor: Colors.red,),
+      ],
     );
   }
 }
 
 List<TeacherMenuItem> teacherMenuItem = [
-  
   TeacherMenuItem(
-    title : 'ข้อมูลส่วนตัว',
-    icon : Icons.person,
-    colorBox : Colors.blue,
-    iconColor : Colors.white,
-  ),
-  TeacherMenuItem(
-    title : 'ตารางสอน',
-    icon : Icons.calendar_today,
-    colorBox : Colors.red[300],
-    iconColor : Colors.white,
+    title: 'ข้อมูลส่วนตัว',
+    icon: Icons.person,
+    colorBox: Colors.blue,
+    iconColor: Colors.white,
   ),
   TeacherMenuItem(
-    title : 'นัดหมาย',
-    icon : Icons.calendar_view_day,
-    colorBox : Colors.green[300],
-    iconColor : Colors.white,
+    title: 'ตารางสอน',
+    icon: Icons.calendar_today,
+    colorBox: Colors.red[300],
+    iconColor: Colors.white,
   ),
   TeacherMenuItem(
-    title : 'จัดการข่าว ประกาศ',
-    icon : Icons.description,
-    colorBox : Colors.yellow[300],
-    iconColor : Colors.white,
+    title: 'นัดหมาย',
+    icon: Icons.calendar_view_day,
+    colorBox: Colors.green[300],
+    iconColor: Colors.white,
   ),
   TeacherMenuItem(
-    title : 'จัดการกิจกรรม',
-    icon : Icons.local_activity,
-    colorBox : Colors.orange[300],
-    iconColor : Colors.white,
+    title: 'จัดการข่าว ประกาศ',
+    icon: Icons.description,
+    colorBox: Colors.yellow[300],
+    iconColor: Colors.white,
   ),
-   TeacherMenuItem(
-    title : 'สถิติ รายงานกการเข้าร่วมกิจกรรม',
-    icon : Icons.insert_chart,
-    colorBox : Colors.pink[300],
-    iconColor : Colors.white,
+  TeacherMenuItem(
+    title: 'จัดการกิจกรรม',
+    icon: Icons.local_activity,
+    colorBox: Colors.orange[300],
+    iconColor: Colors.white,
   ),
-  
+  TeacherMenuItem(
+    title: 'สถิติ รายงานกการเข้าร่วมกิจกรรม',
+    icon: Icons.insert_chart,
+    colorBox: Colors.pink[300],
+    iconColor: Colors.white,
+  ),
 ];
 
 class TeacherMenuItem extends StatelessWidget {
+  TeacherMenuItem({this.title, this.icon, this.colorBox, this.iconColor});
 
-  TeacherMenuItem({this.title, this.icon, this.colorBox,this.iconColor});
-  
   final String title;
   final IconData icon;
-  final Color colorBox,iconColor;
+  final Color colorBox, iconColor;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         Container(
-          height:100.0,
+          height: 100.0,
           width: 100.0,
-          decoration: BoxDecoration(
-            color: colorBox,
-            shape: BoxShape.circle
-          ),
+          decoration: BoxDecoration(color: colorBox, shape: BoxShape.circle),
           child: Icon(icon, color: iconColor),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 5.0),
-          child: Text(title,style: TextStyle(fontSize: 10.0,), textAlign: TextAlign.center,
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 10.0,
+            ),
+            textAlign: TextAlign.center,
           ),
         )
       ],
@@ -141,4 +143,30 @@ class TeacherMenuItem extends StatelessWidget {
   }
 }
 
+class MyMenu extends StatelessWidget {
+  MyMenu({this.title, this.icon, this.iconColor});
 
+  final String title;
+  final IconData icon;
+  final MaterialColor iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.all(8.0),
+      child: InkWell(
+        onTap: () {},
+        splashColor: Colors.green,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(icon, size: 70.0, color: iconColor),
+              Text(title, Style: TextStyle(fontSize: 17.0))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
