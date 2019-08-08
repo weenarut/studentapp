@@ -4,12 +4,12 @@ import 'package:studentapp/screen/news.dart';
 import 'package:studentapp/screen/regulation.dart';
 import 'package:studentapp/screen/activity.dart';
 
-class Mainteacher extends StatefulWidget {
+class MainTeacher extends StatefulWidget {
   @override
-  _MainteacherState createState() => _MainteacherState();
+  _MainTeacherState createState() => _MainTeacherState();
 }
 
-class _MainteacherState extends State<Mainteacher> {
+class _MainTeacherState extends State<MainTeacher> {
   
   int _selectIndex = 0;
   final _layoutPage = [

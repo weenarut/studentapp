@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'screen/home.dart';
-import 'package:studentapp/main.dart'
+import 'package:studentapp/screen/mainTeacher.dart';
 
 void main() {
   runApp (

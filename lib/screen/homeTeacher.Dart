@@ -65,12 +65,12 @@ class TeacherMenu extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       crossAxisCount: 2,
-      children: TeacherMenuItem,    
+      children: teacherMenuItem,    
     );
   }
 }
 
-List<TeacherMenuItem> TeacherMenuItem = [
+List<TeacherMenuItem> teacherMenuItem = [
   
   TeacherMenuItem(
     title : 'ข้อมูลส่วนตัว',

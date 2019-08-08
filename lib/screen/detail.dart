@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './editdata.dart';
 import 'package:http/http.dart' as http;
-import './main.dart';
+import './activity.dart';
 
 class Detail extends StatefulWidget {
   List list;
@@ -32,7 +32,7 @@ void confirm() {
             deleteData();
             Navigator.of(context).push(
               new MaterialPageRoute(
-                builder: (BuildContext context)=> new Home(),
+                builder: (BuildContext context)=> new Activity(),
                  )
             );
           },
