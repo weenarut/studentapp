@@ -37,7 +37,7 @@ class Profile extends StatelessWidget {
       child: ListTile(
         leading: Container(
           width: 50.0,
-          height: 50.0,
+          height: 20.0,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: DecorationImage(
@@ -64,7 +64,7 @@ class TeacherMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       shrinkWrap: true,
-      crossAxisCount: 2,
+      crossAxisCount: 2,  
       children: teacherMenuItem,    
     );
   }
@@ -123,8 +123,8 @@ class TeacherMenuItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          height: 60.0,
-          width: 60.0,
+          height:100.0,
+          width: 100.0,
           decoration: BoxDecoration(
             color: colorBox,
             shape: BoxShape.circle
@@ -140,3 +140,5 @@ class TeacherMenuItem extends StatelessWidget {
     );
   }
 }
+
+

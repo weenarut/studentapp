@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:studentapp/screen/homestudent.dart';
+import 'package:studentapp/screen/hometeacher.dart';
 import 'package:studentapp/screen/news.dart';
 import 'package:studentapp/screen/regulation.dart';
 import 'package:studentapp/screen/activity.dart';
@@ -13,7 +13,7 @@ class _MainTeacherState extends State<MainTeacher> {
   
   int _selectIndex = 0;
   final _layoutPage = [
-    HomeStudent(),
+    HomeTeacher(),
     Regulation(),
     News(),
     Activity(),
