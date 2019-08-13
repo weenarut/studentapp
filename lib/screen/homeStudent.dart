@@ -118,7 +118,9 @@ class StudentMenuItem extends StatelessWidget {
   final Color colorBox,iconColor;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Container(
+      child: SingleChildScrollView(
+        child: Column(
       children: <Widget>[
         Container(
           height: 70.0,
@@ -135,6 +137,9 @@ class StudentMenuItem extends StatelessWidget {
           ),
         )
       ],
+    ),
+      ),
     );
   }
 }
+
