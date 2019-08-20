@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:studentapp/screen/Dashboard.dart';
 import 'package:studentapp/screen/activity.dart';
 import 'package:studentapp/screen/appointment.dart';
-import 'package:studentapp/screen/timetable.dart';
-import 'package:studentapp/screen/profile.dart';
+import 'package:studentapp/screen/regulation.dart';
+import 'package:studentapp/screen/announce.dart';
 
 class HomeTeacher extends StatefulWidget {
   @override
@@ -14,16 +14,7 @@ class _HomeTeacherState extends State<HomeTeacher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Business Computer'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_horiz),
-            onPressed: () {},
-          )
-        ],
-      ),
-      drawer: new Drawer(
+        drawer: new Drawer(
         child: ListView(
           children: <Widget>[
             UserAccountsDrawerHeader(
@@ -143,8 +134,8 @@ class MyMenu extends StatelessWidget {
   final MaterialColor iconColor;
 
 
-  void _openPage(context,Pagename){
-    switch (Pagename) {
+  void _openPage(context,pagename){
+    switch (pagename) {
       case "ข้อมูลส่วนตัว":
         {
           Navigator.of(context).push(new MaterialPageRoute(
@@ -155,7 +146,7 @@ class MyMenu extends StatelessWidget {
       case "ตารางสอน":
         {
           Navigator.of(context).push(new MaterialPageRoute(
-          builder: (BuildContext context) => new TimeTable(),
+          builder: (BuildContext context) => new Regulation(),
           ),);
         }
         break;
@@ -194,7 +185,7 @@ class MyMenu extends StatelessWidget {
           //statements;
         }
         break;
-      };
+      }
   }
 
 

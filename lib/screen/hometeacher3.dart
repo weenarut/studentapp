@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import './adddata.dart';
+import 'addactvity.dart';
 import './news.dart';
 
 
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                             new MaterialPageRoute(
                               builder: (BuildContext context) => new News(),
                             ),
-                          );;
+                          );
                         }
                         break;
 
@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                           //statements;
                         }
                         break;
-                    };
+                    }
 
 
   

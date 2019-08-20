@@ -9,16 +9,7 @@ class _HomeStudentState extends State<HomeStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Business Computer'),
-        actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.more_horiz),
-          onPressed: (){},
-        )
-        ], 
-      ),
-      body: ListView(
+        body: ListView(
         children: <Widget>[
           Profile(),
           Divider(),

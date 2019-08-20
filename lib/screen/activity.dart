@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import './detail.dart';
-import './adddata.dart';
+import 'addactvity.dart';
 
 class Activity extends StatefulWidget {
   @override

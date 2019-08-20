@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studentapp/main.dart';
 import 'package:studentapp/screen/homestudent.dart';
 import 'package:studentapp/screen/news.dart';
 import 'package:studentapp/screen/regulation.dart';
@@ -7,12 +8,15 @@ import 'package:studentapp/screen/activity.dart';
 
 class MainStudent extends StatefulWidget {
   @override
-  _MainStudentState createState() => _MainStudentState();
+  _MainStudentState createState() => _MainStudentState(username);
 }
 
 class _MainStudentState extends State<MainStudent> {
-  
-  int _selectIndex = 0;
+
+  _MainStudentState(this.username);
+  final String username; 
+
+  int _selectIndex = 0; 
   final _layoutPage = [
     HomeStudent(),
     Regulation(),
@@ -30,6 +34,15 @@ class _MainStudentState extends State<MainStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('Welcome Student'),actions: <Widget>[
+            IconButton(
+              onPressed: () { 
+                Navigator.pushReplacementNamed(context, '/LoginForm');
+              },
+              icon: Icon(Icons.lock_open),
+            )
+          ],
+      ),
       body: _layoutPage.elementAt(_selectIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

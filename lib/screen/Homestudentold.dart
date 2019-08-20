@@ -24,7 +24,7 @@ class _HomeStudentState extends State<HomeStudent> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context).textTheme.subtitle;
+   // TextStyle textStyle = Theme.of(context).textTheme.subtitle;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       

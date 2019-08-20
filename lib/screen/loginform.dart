@@ -1,11 +1,44 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class HomeForm extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:studentapp/screen/register.dart';
+import 'dart:async';
+import 'package:http/http.dart' as http;
+
+class LoginForm extends StatefulWidget {
   @override
-  _HomeFormState createState() => _HomeFormState();
+  _LoginFormState createState() => _LoginFormState();
 }
 
-class _HomeFormState extends State<HomeForm> {
+class _LoginFormState extends State<LoginForm> {
+  TextEditingController user = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
+
+  String msg='';
+
+  Future<List> _login() async {
+    final response = await http.post(
+        'https://weenarutclass.000webhostapp.com/bcstudent/checkuser.php',
+        body: {
+          "username": user.text,
+          "password": pass.text,
+        });
+
+    var datauser = json.decode(response.body);
+
+    if (datauser.length == 0){
+      setState(() {
+        msg='Login Fail';
+      });
+    } else {
+      if (datauser[0]['type']=='S'){
+        Navigator.pushReplacementNamed(context, '/mainStudent');
+      } else if (datauser[0]['type']=='T'){
+        Navigator.pushReplacementNamed(context, '/mainTeacher');
+      }
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +92,7 @@ class _HomeFormState extends State<HomeForm> {
                     textColor: Colors.white,
                     child:  Text('เข้าสู่ระบบ',textScaleFactor: 1.5,style: textStyle,),
                     onPressed: (){
-
+                         _login(); 
                     },
                   ) ,
                 ),
@@ -81,8 +114,13 @@ class _HomeFormState extends State<HomeForm> {
 
               FlatButton(child: 
                 Text('ลงทะเบียนผู้ใช้'),
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context)=> new AddData()));
+                },
                 ),
+
+                Text(msg,style: TextStyle(fontSize: 20.0,color: Colors.red),)
 
           ],
         ) ,),
