@@ -5,22 +5,23 @@ import 'dart:convert';
 import 'package:studentapp/screen/register.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-
+import 'package:studentapp/model/api.dart';
 
 void main() => runApp(BCApp());
 
-String username = "";
-  
+String username = "";  
+
 class BCApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       home: LoginForm(),
       routes: <String,WidgetBuilder>{
-        '/MainStudent': (BuildContext context)=> new MainStudent(),
-        '/MainTeacher': (BuildContext context)=> new MainTeacher(),
+        '/MainStudent': (BuildContext context)=> new MainStudent(username),
+        '/MainTeacher': (BuildContext context)=> new MainTeacher(username),
         '/LoginForm': (BuildContext context)=> new LoginForm(),
       },
     );
@@ -33,16 +34,15 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  TextEditingController user = new TextEditingController();
+  TextEditingController id = new TextEditingController();
   TextEditingController pass = new TextEditingController();
 
   String msg='';
 
   Future<List> _login() async {
-    final response = await http.post(
-        'https://weenarutclass.000webhostapp.com/bcstudent/checkuser.php',
+    final response = await http.post(BaseUrl.checkuser,
         body: {
-          "username": user.text,
+          "id": id.text,
           "password": pass.text,
         });
 
@@ -86,12 +86,12 @@ class _LoginFormState extends State<LoginForm> {
             Padding(
               padding: EdgeInsets.only(top: 5,bottom: 5),
               child: TextField(
-                controller: user,
+                controller: id,
                 keyboardType: TextInputType.number,
                 style: textStyle ,
                 decoration : InputDecoration(
                   labelText: 'ชื่อผู้ใช้',
-                  hintText: 'ป้อนชื่อผู้ใช้',
+                  hintText: 'กรุณาป้อนรหัสนักศึกษา',
                   labelStyle: textStyle,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0)

@@ -7,18 +7,17 @@ import 'package:studentapp/screen/activity.dart';
 
 
 class MainStudent extends StatefulWidget {
+  final String username;
+  MainStudent(this.username);
+
   @override
-  _MainStudentState createState() => _MainStudentState(username);
+  _MainStudentState createState() => _MainStudentState();
 }
 
 class _MainStudentState extends State<MainStudent> {
-
-  _MainStudentState(this.username);
-  final String username; 
-
   int _selectIndex = 0; 
   final _layoutPage = [
-    HomeStudent(),
+    HomeStudent(username),
     Regulation(),
     News(),
     Activity(),
@@ -34,7 +33,8 @@ class _MainStudentState extends State<MainStudent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Welcome Student'),actions: <Widget>[
+      appBar: AppBar(title: Text(
+            'Welcome',style: TextStyle(fontSize: 20.0),),actions: <Widget>[
             IconButton(
               onPressed: () { 
                 Navigator.pushReplacementNamed(context, '/LoginForm');

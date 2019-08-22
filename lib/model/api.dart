@@ -1,4 +1,4 @@
 class BaseUrl{
-  static String login = "http://weenarutclass.000webhostapp.com/bcstudent/login.php";
-  static String register = "http://weenarutclass.000webhostapp.com/bcstudent/register.php";
+  static String register = "http://bc2018.crru.ac.th/bcapp/register.php";
+  static String checkuser = "http://bc2018.crru.ac.th/bcapp/checkuser.php";
 }

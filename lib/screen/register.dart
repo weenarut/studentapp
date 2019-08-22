@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:studentapp/model/api.dart';
 
 class AddData extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ TextEditingController controllerTel = new TextEditingController();
 
 
 void addData(){
-  var url="http://weenarutclass.000webhostapp.com/bcstudent/register.php";
+  var url= BaseUrl.register;
 
   http.post(url, body:{
     "studentid": controllerStudentId.text,

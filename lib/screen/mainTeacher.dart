@@ -6,17 +6,18 @@ import 'package:studentapp/screen/regulation.dart';
 import 'package:studentapp/screen/activity.dart';
 
 class MainTeacher extends StatefulWidget {
+  final String username;
+  MainTeacher(this.username);
+
   @override
-  _MainTeacherState createState() => _MainTeacherState(username);
+  _MainTeacherState createState() => _MainTeacherState();
 }
 
 class _MainTeacherState extends State<MainTeacher> {
-  _MainTeacherState(this.username);
-  final String username;
-
+ 
   int _selectIndex = 0;
   final _layoutPage = [
-    HomeTeacher(),
+    HomeTeacher(username),
     Regulation(),
     News(),
     Activity(),
@@ -32,7 +33,7 @@ class _MainTeacherState extends State<MainTeacher> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome Teacher'),
+        title: Text('Welcome',style: TextStyle(fontSize: 20.0),),
         actions: <Widget>[
           IconButton(
             onPressed: () {

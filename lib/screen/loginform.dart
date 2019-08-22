@@ -1,11 +1,14 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:studentapp/model/api.dart';
 import 'package:studentapp/screen/register.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
 class LoginForm extends StatefulWidget {
+  final String username;
+  LoginForm({Key key,this.username}) : super (key:key);
+
   @override
   _LoginFormState createState() => _LoginFormState();
 }
@@ -18,7 +21,7 @@ class _LoginFormState extends State<LoginForm> {
 
   Future<List> _login() async {
     final response = await http.post(
-        'https://weenarutclass.000webhostapp.com/bcstudent/checkuser.php',
+        BaseUrl.checkuser,
         body: {
           "username": user.text,
           "password": pass.text,
